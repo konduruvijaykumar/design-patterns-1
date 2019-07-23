@@ -9,7 +9,7 @@ public class SingletonEagerLoadingDemo {
         System.out.println("instance1 :: " + instance1);
         SingletonEagerLoading instance2 = SingletonEagerLoading.getInstance();
         System.out.println("instance2 :: " + instance2);
-        if(instance1 == instance2){
+        if (instance1 == instance2) {
             System.out.println("Both instances of SingletonEagerLoading are same... ");
         }
     }
