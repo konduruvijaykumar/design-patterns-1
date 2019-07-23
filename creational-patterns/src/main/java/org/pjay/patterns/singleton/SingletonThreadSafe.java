@@ -14,9 +14,21 @@ public class SingletonThreadSafe {
     }
 
     // This has performance issue as total method is synchronized
-    public static synchronized SingletonThreadSafe getInstance() {
+    /*public static synchronized SingletonThreadSafe getInstance() {
         if (null == singletonThreadSafe) {
             singletonThreadSafe = new SingletonThreadSafe();
+        }
+        return singletonThreadSafe;
+    }*/
+
+    // Double Check Locking
+    public static SingletonThreadSafe getInstance() {
+        if (null == singletonThreadSafe) {
+            synchronized (SingletonThreadSafe.class) {
+                if (null == singletonThreadSafe) {
+                    singletonThreadSafe = new SingletonThreadSafe();
+                }
+            }
         }
         return singletonThreadSafe;
     }
